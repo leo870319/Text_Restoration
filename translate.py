@@ -96,9 +96,9 @@ async def main():
             p = re.compile(r'(?<=```markdown\n)[\s\S]*?(?=\n```)')
             block = p.findall(r.text) 
             if len(block) == 2:
-                with open("ToC.txt", "w") as f:
+                with open("ToC.md", "w") as f:
                     f.write(block[0]+ "---\n\n")
-                with open("Glossary.txt", "w") as f:
+                with open("Glossary.md", "w") as f:
                     f.write(block[1]+ "---\n\n")
 
     await init_gemini()
@@ -111,7 +111,7 @@ async def main():
                 with attempt:
                     r = await state["chat"].send_message(query_text)
                     block = p.findall(r.text) 
-                    with open("body_translate.txt", "a") as f:
+                    with open("body_translate.md", "a") as f:
                         f.write(block[0]+ "\n\n---\n\n")
                     # with open("glossary.txt", "a") as f:
                     #     f.write(block[1]+ "---\n\n")
