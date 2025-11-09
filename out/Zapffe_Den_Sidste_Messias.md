@@ -5,7 +5,7 @@ _Paragraph 1_
 **English(T1):**
 > The Last Messiah
 > by Peter Wessel Zapffe
-> An essay by Peter Wessel Zapffe, dated 1933, originally published in Norwegian in Janus #9; translated to German.
+> An essay by Peter Wessel Zapffe, dated 1933, originally published in Norwegian in Janus 9; translated to German.
 > I II III IV V
 > Peter Wessel Zapffe, 1933
 
