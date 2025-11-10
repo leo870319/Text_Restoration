@@ -5,7 +5,7 @@ import sys
 import regex as re
 from linerange_GMM import findPhyLRange
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt
-from Chat import session
+from chat import session
 
 INDEX = 0
 SOURCE_PATH = "./raw/text2.txt"
