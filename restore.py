@@ -4,87 +4,16 @@ import json_repair
 import sys
 import regex as re
 from linerange_GMM import findPhyLRange
-from gemini_webapi import GeminiClient, ChatSession
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt
+from Chat import session
 
 INDEX = 0
 SOURCE_PATH = "./raw/text2.txt"
 OUT_PATH = "./restored/"
+QUERY_SIZE = 10000
 SESSION_PATH = "./session"
 GEMID = 'cd16701d5533'
-MODEL = 'gemini-2.5-pro'
-QUERY_SIZE = 10000
 
-class session:
-    __chat: ChatSession
-    
-    #Prohibit Instanciation with built-in method
-    def __new__(cls):
-        raise TypeError( f"Do create instance by calling {cls.__name__}(). Use .init()。")
-
-    #Create new session
-    @classmethod
-    async def init(cls, gem=None, metadata=None):
-
-        if not (gem or metadata): raise ValueError("No previous chat or gem")
-
-        #Instanciate a session
-        instance = object.__new__(cls)
-
-        #Create Gemini client
-        client = GeminiClient()
-        await client.init(timeout=3000, auto_close=False, auto_refresh=True) 
-        await client.fetch_gems(include_hidden=False)
-
-        #Start chat
-        if metadata: 
-            instance.__chat = client.start_chat(model=MODEL, metadata=metadata)
-            print("Resume previous chat")
-        elif gem: 
-            instance.__chat = client.start_chat(model=MODEL, gem=client.gems.get(id=gem))
-            print("Start new chat")
-
-        return instance
-
-    @property
-    def __client(self):
-        return self.__chat.geminiclient
-    @property
-    def __gem(self):
-        return self.__chat.gem
-    @property
-    def __metadata(self):
-        return self.__chat.metadata
-    @property
-    def __setting(self):
-        #Setup ChatSession using gems or previous chat history
-        if self.__metadata: setup = {"metadata": self.__metadata}
-        elif self.__gem: setup = {"gem": self.__gem}
-        else: raise ValueError
-        return setup
-
-    async def send_message(self, message):
-        r = await self.__chat.send_message(message)
-        return r 
-    
-    async def close(self):
-        if self.__client.running:
-            #Backup current session before close
-            with open("session", "wb") as f: pickle.dump(self.__metadata, f)
-            #Close current client
-            await self.__client.close()
-
-    async def restart(self, retry_state=None):
-        if retry_state:
-            print(retry_state)
-        #Retain current setting for new client
-        setting=self.__setting 
-        await self.close()
-        await asyncio.sleep(10.0)
-
-        client = GeminiClient()
-        await client.init(timeout=3000, auto_close=False, auto_refresh=True) 
-        self.__chat = client.start_chat(model=MODEL, **setting)
 def splitArticles(txt: str):
     min, max = findPhyLRange(txt)
     # Split by paragraphs (period + newline followed by uppercase letter)
