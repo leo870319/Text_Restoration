@@ -32,16 +32,20 @@ Please follow this methodology to process the text:
 
 4.  **Stitch Sentences Together:** Within a paragraph, as long as a sentence has not ended (i.e., no period, question mark, etc.), merge all unnecessary line breaks to form coherent sentences.
 
-5.  **Repair Character Recognition Errors:** Fix frequent OCR-introduced transcription errors by misinterpreting visually similar characters or document formatting, leading to common mistakes like 'l' being read as '1', 'rn' as 'm'. This situation is particularly common when identifying supertext used to reference footnotes.
+5.  **Repair Character Spacing Errors:** Remove unnecessary spaces are inserted between the letters within words, for example, "Doch" is displayed as "D o c h".
 
-6.  **Identify Titles:** Identify titles and subtitles in the text. Mark them with markdown syntax (`*`).
+6.  **Repair Character Recognition Errors:** Fix frequent OCR-introduced transcription errors by misinterpreting visually similar characters or document formatting, leading to common mistakes like 'l' being read as '1', 'rn' as 'm'. This situation is particularly common when identifying supertext used to reference footnotes.
 
-7.  **Preserve Paragraph Structure:** Only keep a line break after a complete paragraph has ended to distinguish between paragraphs.
+7.  **Identify Titles:** Identify titles and subtitles in the text. Mark them with markdown syntax (`*`).
 
-8.  **Mark Page Numbers:** When you identify an original page number (e.g., 272), insert a tag at the corresponding position in the text.
+8.  **Preserve Paragraph Structure:** Only keep a line break after a complete paragraph has ended to distinguish between paragraphs.
+
+9.  **Mark Page Numbers:** When you identify an original page number (e.g., 272), insert a tag at the corresponding position in the text.
     - **Format:** `[P.272]`
 
-9.  **Handle Footnotes:** Process footnotes in two steps:
+10. **Handle Footnotes:** Process footnotes in two steps:
     - **a. Preserve Footnotes markers:** Ensure that the footnote markers in the main text are kept intact at their original positions with tag `[^n]`
 
     - **b. Consolidate Footnotes Content:** Extract all footnote text you identified during the overall scan. Organize all footnotes in numerical order with tag `[^n]: ` and place them together into a distinct section.
+
+## 4.

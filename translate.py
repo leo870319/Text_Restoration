@@ -1,12 +1,13 @@
-from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
 import asyncio
 import pickle
 import sys
 import regex as re
 from gemini_webapi import GeminiClient
 from typing import Dict, Any
+from tenacity import AsyncRetrying, RetryError, stop_after_attempt
 
 INDEX = 0
+FILEPATH = "text.txt"
 AGENTID = 'df8f12a87dcc'
 
 def generateQueries(paragraphs: list, num: int):
@@ -33,28 +34,28 @@ async def main():
     # --- 1. Read files ---
     try:
         # Use 'utf-8' encoding for broad compatibility
-        with open("body.txt", 'r', encoding='utf-8') as f:
+        with open(FILEPATH, 'r', encoding='utf-8') as f:
             body = f.read()
-        with open("footnotes.txt", 'r', encoding='utf-8') as f:
-            foot = f.read()
+        # with open("footnotes.txt", 'r', encoding='utf-8') as f:
+        #     foot = f.read()
     except FileNotFoundError:
         print("Error: text.txt not found. Please create the file.", file=sys.stderr)
         return
     except Exception as e:
         print(f"Error reading text.txt: {e}", file=sys.stderr)
         return
-    if not (body or foot):
+    if not (body):
         print("text.txt is empty. Exiting.", file=sys.stderr)
         return
 
 
     # 2. Group chunks into queries up to a character limit
-    text = body + foot
+    text = body
     bodies = body.splitlines()
-    foots = foot.splitlines()
+    # foots = foot.splitlines()
     b = generateQueries(bodies, 5000)
-    f = generateQueries(foots, 5000)
-    queries = b + f
+    # f = generateQueries(foots, 5000)
+    queries = b
 
     # --- 3. Initialize Client ---
     state: Dict[str, Any] = {
