@@ -1,0 +1,80 @@
+import asyncio
+import pickle
+import regex as re
+from tenacity import AsyncRetrying, RetryError, stop_after_attempt
+from generateQueries import generateQueries
+from chatsession import chatbox
+
+INDEX = 0
+FILEPATH = "restored/"
+AGENTID = 'df8f12a87dcc'
+SESSION_PATH = 'previous_chat/session'
+GEMID = ''
+QUERY_SIZE = 3000
+
+async def main():
+
+    # --- 1. Read files ---
+    try:
+        # Use 'utf-8' encoding for broad compatibility
+        with open(f"{FILEPATH}body.txt", 'r') as f:
+            body = f.read()
+        with open(f"{FILEPATH}footnotes.txt") as f:
+            foot = f.read()
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Not text found in {FILEPATH}")
+
+    if not (body or foot):
+        raise ValueError("File is empty. Exiting.")
+
+    try: 
+        with open(SESSION_PATH, 'rb') as f:
+            metadata = pickle.load(f)
+    except FileNotFoundError:
+        metadata = None
+        print("No existed session found")
+        pass
+
+
+    # 2. Splittext into multiple query under character limit
+    text = body + foot
+    queries = generateQueries(text.splitlines(), QUERY_SIZE)
+    print(f"Restoration will take {len(queries)} queries to complete.")
+
+    # --- 3. Initialize Client ---
+    s = await chatbox.init(gem=GEMID, metadata=metadata)
+    r = await s.send_message(text)
+    block = re.findall(r'(?<=```markdown\n)[\s\S]*?(?=\n```)', r.text) 
+    if len(block) == 2:
+        with open("ToC.md", "w") as f: f.write(block[0])
+        with open("Glossary.md", "w") as f: f.write(block[1])
+    else:
+        raise ValueError("Server initial response is in wrong format")
+
+    for i, query_text in enumerate(queries, start=INDEX):
+        print(f"Processing chunk {i}/{len(queries)-1}")
+        try:
+            async for attempt in AsyncRetrying(stop=stop_after_attempt(3), after=s.restart):
+                with attempt: r = await s.send_message(query_text)
+                block = re.findall(r'(?<=```markdown\n)[\s\S]*?(?=\n```)', r.text) 
+                if len(block)==1:
+                    with open("body_translate.md", "a") as f: f.write(block[0])
+                else:
+                    print(f"Server Respose of chunk{i} is in wrong format")
+
+        except RetryError as e:
+            print(f"All retries failed: {e}")
+        
+    if session:= await s.close():
+        with open(SESSION_PATH, 'wb') as s: pickle.dump(session, s)
+
+    print("Client closed")
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nProcess interrupted by user.")
+
+
+

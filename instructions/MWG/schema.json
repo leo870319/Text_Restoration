@@ -1,0 +1,67 @@
+{
+  "title": "Response Schema",
+  "description": "Defines the structure for a single batch of a restored document. You must escape all special characters",
+  "type": "object",
+  "properties": {
+    "bodies": {
+      "description": "Main body content, as an array of restored text blocks (e.g., titles, paragraphs).",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Block"
+      }
+    },
+    "author_notes": {
+      "description": "An array of all restored author_note.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Footnote"
+      }
+    },
+    "editor_notes": {
+      "description": "An array of all restored editor_note.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Footnote"
+      }
+    }
+  },
+  "required": ["bodies", "author_notes", "editor_notes"],
+  "definitions": {
+    "Block": {
+      "type": "object",
+      "properties": {
+        "pos": {
+          "description": "Page and intra-page sort order. Format: P.I (e.g., 125.3). 'P' = Page number. 'I' = 1-based index of the block's *start* on that page. A block starting on a previous page but flowing onto this one does *not* count towards this index.",
+          "type": "number"
+        },
+        "content": {
+          "description": "The restored content of the text block.",
+          "type": "string"
+        }
+      },
+      "required": ["pos", "content"]
+    },
+    "Footnote": {
+      "type": "object",
+      "properties": {
+        "pending": {
+          "description": "Status: False = Content found (Complete), True = Marker found, content missing (Pending).",
+          "type": "boolean"
+        },
+        "lb": {
+          "description": "The restored label from the footnote body (e.g., \"1)\", \"17\"). This must match the in-text marker's content, excluding formatting.",
+          "type": "string"
+        },
+        "pos": {
+          "description": "The 'pos' (e.g., 125.3) of the text block where the in-text marker was found. Footnotes within footnote should inherit their parent's pos value.",
+          "type": "number"
+        },
+        "content": {
+          "description": "The restored footnote content, or null if pending.",
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["pending", "lb", "pos", "content"]
+    }
+  }
+}

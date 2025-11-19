@@ -1,0 +1,127 @@
+{
+  "p": [
+    {
+      "pos": 78.1,
+      "content": "*(Berufswahl und Berufsschicksal) der Arbeiterschaft Erhebungen über Auslese und Anpassung der geschlossenen Großindustrie.*"
+    },
+    {
+      "pos": 78.2,
+      "content": "Nachstehendes Exposé wurde bs.Z. dem Vorsitzenden des Unterausschusses[^1] des Vereins für Sozialpolitik, welcher die Erhebungen vorbereitete, von dem Unterzeichneten als vorläufige Unterlage für die Diskussion über die Methodik derselben eingereicht. Es knüpft in wichtigen Punkten an ein kürzeres Anschreiben an, mit welchem seinerzeit Alfred Weber den fast ganz von ihm bearbeiteten (inzwischen umgestalteten) Entwurf von Fragebögen vorlegte,[^2] und verwertet auch sonst mehrfach die Ergebnisse von Erörterungen, die mit A[lfred] Weber gepflogen wurden. Verschiedene in den Sitzungen der Ausschüsse gegebene Anregungen[^3] sind ebenfalls berücksichtigt. Die Form war absichtlich so gewählt, als ob dies eine Arbeitsanweisung an die Bearbeiter der Erhebung sein sollte, weil nur so die Probleme der praktischen Durchführbarkeit deutlich hervortreten konnten. Um so nachdrücklicher muß hier betont werden, daß es sich nicht um eine im Auftrage oder im Namen des Vereins verfaßte, irgendwie maßgebliche „Anweisung\", sondern um eine „Anregung\" handelt, welche der Ausschuß des Vereins vervielfältigen zu lassen für richtig fand. Auf welchen Wegen etwa den in Abschnitt II berührten naturwissenschaftlichen Problemen der Arbeitseignung nachgegangen werden könnte und welche Aussichten Versuche dieser Art zur Zeit haben (oder nicht haben) könnten, darüber beabsichtige ich im „Archiv für Sozialwissenschaft und Sozialpolitik\" (Novemberheft 1908, Januarheft 1909)[^4] einige Erläuterungen zu geben. Hier möchte ich nur bemerken: Der Verein für Sozialpolitik kann von denjenigen ökonomisch geschulten Mitarbeitern, welche sich in den Dienst dieser Erhebung stellen werden, unmöglich den Besitz psychopathologischer, physiologischer und ähnlicher Kenntnisse beanspruchen, folglich auch nicht die Erledigung dieser Seite des Problems zur Vorbedingung der Aufnahme von Arbeiten in seine Publikationen machen. Allerdings würden Arbeiten, die über diese, weitaus schwierigsten Punkte Aufschlüsse, - seien es auch nur ernsthafte Vorarbeiten für die Gewinnung von solchen, - bieten würden, zweifellos die wertvollsten sein. Der Verein wendet sich mit der Aufforderung zur Mitarbeit keineswegs nur an Nationalökonomen von Fach, so unentbehrlich der Besitz gewisser ökonomischer Kenntnisse ist. Und es ist für ihn auch nicht entscheidend wichtig, ob Arbeiten solcher Art unter seiner Flagge laufen, - sofern sie nur überhaupt geleistet werden. Heidelberg. Max Weber."
+    },
+    {
+      "pos": 80.1,
+      "content": "Inhalt: I. Allgemeiner Charakter der Erhebung: Sozialpolitische Neutralität. Beschränkung auf die „geschlossene\" Großindustrie. Ausscheiden der nur „morphologischen\" Probleme. Bedeutung der Art der Zusammensetzung der Produktionskosten für die Fragestellung der Erhebung. Die Technik und die Fragestellung der Erhebung. Der Lernprozeß und die „Gelerntheit\" der Arbeiter in ihrer Bedeutung für die Fragen der Erhebung. - II. Die naturwissenschaftlichen Probleme der Erhebung: Physiologische und psychologische Grundlagen der Arbeitseignung. Probleme der „Vererbung\". Grundsätzliche methodische Schwierigkeiten für die Erfassung der durch „Anlage\" bedingten Differenzen der Arbeitseignung. Sinn der Fragestellung. - III. Die Methodik der Erhebung: Ihr Thema. Bedeutung der Arbeitszeit, der Pausen Verteilung, der Lohnsysteme für die Fragestellung. Die Lohnbuchführung und die Kalkulation der Lohnkosten und Nutzeffekte in ihrer Bedeutung für die Erhebung: die Auslese der Arbeiterschaft. Benutzung der Stammrollen[^5] der Fabriken für die Erhebung. Befragung der Arbeiterschaft selbst. Die beiden Typen der Durchführung der Erhebung: Betriebserhebung und gewerkschaftsstatistische Erhebung. Einzelheiten über die Fragestellungen in beiden Fällen. Sinn der Erhebung."
+    },
+    {
+      "pos": 80.2,
+      "content": "*I. Allgemeiner Charakter der Erhebung*"
+    },
+    {
+      "pos": 80.3,
+      "content": "Die gegenwärtige Erhebung[^6] versucht festzustellen: einerseits, welche Einwirkung die geschlossene Großindustrie auf persönliche Eigenart, berufliches Schicksal und außerberuflichen „Lebensstil\" ihrer Arbeiterschaft ausübt, welche physischen und psychischen Qualitäten sie in ihnen entwickelt, und wie sich diese in der gesamten Lebensführung der Arbeiterschaft äußern, - andererseits: inwieweit die Großindustrie ihrerseits in ihrer Entwicklungsfähigkeit und Entwicklungsrichtung an gegebene, durch ethnische, soziale, kulturelle Provenienz, Tradition und Lebensbedingungen der Arbeiterschaft erzeugte Qualitäten derselben gebunden ist."
+    },
+    {
+      "pos": 80.4,
+      "content": "Es sind damit also zwei verschiedene Fragen miteinander verkoppelt, welche der Theoretiker scheiden kann und muß, die aber in der Praxis der Untersuchung fast überall kombiniert miteinander auftreten, dergestalt, daß, wenigstens letzten Endes, die eine nicht ohne die andere beantwortbar ist."
+    },
+    {
+      "pos": 81.1,
+      "content": "Der Verein für Sozialpolitik tritt mit dieser Erhebung auf den Boden der ausschließlich wissenschaftlichen Zwecken dienenden Arbeiten. Den beabsichtigten Publikationen und ebenso den möglicherweise sich daran anschließenden Erörterungen liegt jegliche unmittelbar praktische „sozialpolitische\" Tendenz fern; ihr Zweck ist ein rein „sozialwissenschaftlicher\". Nicht darum handelt es sich, wie die sozialen Verhältnisse in der Großindustrie zu „beurteilen\" seien, ob insbesondere die Lage, in welche der moderne geschlossene Großbetrieb die Arbeiter versetzt, erfreulich sei oder nicht, ob jemand und eventuell wer an etwaigen unerfreulichen Seiten derselben eine „Schuld\" trage, was daran etwa gebessert werden solle oder könne und auf welchem Wege? Sondern es handelt sich ausschließlich um die sachliche und objektive Feststellung von Tatsachen und um die Ermittlung ihrer, in den Existenzbedingungen der Großindustrie und der Eigenart ihrer Arbeiter gelegenen, Gründe. Und diese Tatsachen, deren Feststellung erstrebt wird, liegen gleichfalls nicht auf Gebieten und führen auch nicht auf Probleme, welche mit den Mitteln der Gesetzgebung in Angriff genommen werden können."
+    },
+    {
+      "pos": 81.2,
+      "content": "Damit soll nicht etwa gesagt sein, daß sie kein praktisches Interesse böten. Die Frage, ob und eventuell an welche durch „Volkscharakter\" und Kulturstand bedingte Qualitäten unserer Arbeiterschaft die Leistungsfähigkeit unserer großen Industrien gebunden ist, ebenso die umgekehrte Frage, mit welchen, durch den stetigen Fortschritt unserer großindustriellen Entwicklung in unseren Arbeitern herangezüchteten, weil für die Großindustrie notwendigen oder nützlichen physischen und psychischen Eigenschaften wir in Zukunft zu rechnen haben, in welche allgemeinen Lebensbedingungen endlich diese so geartete Arbeiterschaft hineingestellt ist und sein wird, - diese Fragen sind sicherlich für äußerst wichtige allgemeine Probleme, nicht nur handelspolitischer, sondern allgemein „kulturpolitischer\" (z.B. auch schulpolitischer) Art von ganz erheblicher Bedeutung. Und die Verbreitung von Klarheit über jene Fragen könnte auch für die Beteiligten, die großindustriellen Unternehmer wie die Arbeiter selbst, von beträchtlichem praktischen Interesse werden. Sie könnte schließlich auch über Fragen wie die: was angesichts der gegebenen Existenzbedingungen der Großindustrie auf dem Wege der Gesetzgebung überhaupt als „erreichbar\" gelten darf, was nicht, mehr Licht verbreiten, als heute vorhanden ist. Allein diese möglichen praktischen Nebenerfolge der Erhebung sind nicht ihr Zweck. Es ist nicht die Absicht des Vereins, mittels der diesmaligen Erhebung irgendwelche praktischen Fragen in der Art zur Diskussion zu stellen, wie dies bei manchen seiner früheren Erhebungen[^7] der Fall war und der Fall sein mußte. Vollends denkt der Verein nicht daran, etwa durch seine Erhebung Material zu liefern, um über die Interessenten, seien dies nun Arbeiter oder Unternehmer, „moralisch\" zu Gericht zu sitzen. Mit solchen Absichten wäre der wissenschaftlichen Unbefangenheit dieser Untersuchungen in keiner Weise gedient."
+    },
+    {
+      "pos": 82.1,
+      "content": "Das ganze Problem, um welches es sich handelt, ist schon seiner Natur nach - es scheint nicht überflüssig, dies auch den Herren Mitarbeitern gegenüber zu betonen - ein sozialpolitisch durchaus neutrales. Es folgt daraus beispielsweise: Wo dem Bearbeiter eines Teilgebiets Klagen der Arbeiter über irgendwelche Zustände (Lohnsystem, Verhalten der Werkführer usw.) in industriellen Betrieben entgegentreten, da würde ihn dieser Umstand - im Sinne der gegenwärtigen Erhebung - nicht als Symptom einer praktischen „Frage\" etwas angehen, zu der er urteilend Stellung zu nehmen hätte, sondern er käme für ihn lediglich als Begleiterscheinung bestimmter (technischer, ökonomischer, psychologischer) Umbildungsprozesse in Betracht, die es objektiv in ihrem Verlauf zu erklären gilt. In diesem Sinne betrachtet, können solche Stimmungen der Arbeiterschaft natürlich auch für die gegenwärtige Erhebung von bedeutendem Interesse sein. Allein der Bearbeiter würde sie alsdann nicht auf ihre „Berechtigung\", sondern lediglich auf ihre Entstehung hin anzusehen haben. Und selbstverständlich würde für gereizte Äußerungen der Unternehmer über die Arbeiterschaft der gleiche Grundsatz, sie als Symptome von Entwicklungsreibungen festzustellen und eventuell zu analysieren, zu gelten haben. -"
+    },
+    {
+      "pos": 82.2,
+      "content": "Die gegenwärtige Erhebung verfolgt also - in dem ebenerwähnten Sinne - „theoretische\" Ziele. Es erscheint nützlich, noch ausdrücklicher, als dies aus dem mitgeteilten „Arbeitsplan\"[^8] selbst hervorgehen kann, zu veranschaulichen, welcher Art diese Ziele sind. -"
+    },
+    {
+      "pos": 83.1,
+      "content": "Die Erhebung beschränkt sich in ihrem Objekt zunächst insofern, als sie die geschlossene Großindustrie - Unternehmungen also, welche gänzlich oder mindestens dem Schwerpunkte nach geschlossene Großbetriebe schaffen - zum Gegenstand hat: die etwa angegliederte Heimarbeit wäre aber natürlich, nach Eigenart und Provenienz ihrer Arbeiterschaft, mit der im geschlossenen Betriebe verwendeten zu vergleichen. Überhaupt könnte ein Vergleich mit hausindustriellen Verhältnissen gegebenenfalls fruchtbar sein. - Die Erhebung findet ferner ihr letztes Ziel nicht in der Analyse der „morphologischen\" Fragen: Organisation der Produktion und des Absatzes und innere Betriebsgliederung, nach deren technischer und ökonomischer Bedingtheit. Allerdings ist es naturgemäß durchaus unumgänglich, daß der Bearbeiter von diesen Dingen sich für sein Arbeitsgebiet eine gründliche Kenntnis verschafft, wie dies ja auch in dem ersten Absatz des „Arbeitsplanes“[^9] vorausgesetzt wird. Die Punkte, auf welche es dabei ankommen würde, sind z.B. in der Abhandlung von Dr. H[ugo] Ephraim („Organisation und Betrieb einer Tuchfabrik\", Tübingen 1905)[^10] für eine bestimmte Industrie behandelt, und den Herrn Mitarbeitern kann das Studium dieser Darstellung nur empfohlen werden. Allein Arbeiten dieser Art würden nicht als Antwort auf die mit dieser Erhebung aufgeworfenen Fragen gelten können, so unentbehrlich sie oft als Vorarbeiten für deren Inangriffnahme sein werden."
+    },
+    {
+      "pos": 84.1,
+      "content": "So würde beispielsweise die Gliederung der Einzelunternehmung in Betriebseinheiten (z.B. eines, in der üblichen Redeweise, sogenannten „Betriebes\" - gemeint ist in genauerer Ausdrucksweise: eines in einer Hand und in einem lokal irgendwie zusammenhängenden Gebäudekomplex zusammengefaßten Produktionsuniversums - etwa der Eisenindustrie in technische Betriebseinheiten wie: Gießerei, Kesselschmiede, Maschinenwerkstatt usw., oder einer „Weberei\" in technische Betriebseinheiten, wie: Schlichterei, Spulerei, Weberei, Säumerei usw.) und die Art der Abrechnung und des Verkehrs dieser Betriebseinheiten untereinander hier nie das eigentliche Objekt der Darstellung sein dürfen. Das Interesse dieser Erhebung beginnt vielmehr erst bei Fragen wie folgenden: inwieweit besteht - wie immer jene „Betriebseinheiten\" innerhalb des Unternehmens produktionstechnisch oder baulich oder buchmäßig (für die Kalkulation) voneinander geschieden oder miteinander kombiniert sein mögen - zwischen ihnen ein Austausch von Arbeitskräften, ein „Avancement\" von einer in die andere? oder besteht umgekehrt eine mehr oder minder strenge Scheidung? und hat diese etwa auch in sozialer Hinsicht und im geselligen Verkehr Konsequenzen? Darin verhalten sich z.B. Formerei und Kesselschmiede, Spulerei und Weberei, Weberei und Säumerei gänzlich verschieden zueinander. - Ebenso steht es mit der an sich so wichtigen Organisation des Absatzes. Sie ist nicht um ihrer selbst willen Objekt dieser Erhebung. Dagegen spielt sie nicht selten indirekt in sehr einschneidender Weise in die Fragen dieser Erhebung hinein. Z.B. insofern als die Absatzvermittlung durch Grossisten („Engrossortimenter\"), wie sie die Textilindustrie Englands kennt, die weitestgehende Spezialisierung der Einzelunternehmungen, damit auch ihrer Arbeiterschaft und, als Folge davon, deren kontinuierliche Beschäftigung mit der gleichen Arbeit begünstigt, - was sowohl für das uns interessierende „Berufsschicksal\" der Arbeiterschaft wie für die Möglichkeit, einigermaßen „exaktes\" Material über deren Leistungsfähigkeit zu gewinnen (s. unten) ,[^11] von Wichtigkeit ist. Wo, wie vielfach in Deutschland, in starkem Maße direkter Verkehr mit den Detaillisten stattfindet, ist die Spezialisierung erschwert, daher der Wechsel der Beschäftigungsart des einzelnen Arbeiters, zum mindesten (so in manchen Zweigen der Weberei) der Wechsel der Sorten, die er herstellt, für seine Lage charakteristisch und für die Gewinnung deutlicher Zahlen, welche das Maß seiner Leistung, deren Schwankungen und ihre Vergleichbarkeit mit derjenigen anderer Arbeiter des gleichen Betriebes charakterisieren könnten, sehr erschwerend. - Wenn so die eigentlich betriebsorganisatorischen und Absatzprobleme für diese Erhebung nur eine indirekte Rolle, wenn auch unter Umständen eine sehr wichtige, zu spielen berufen sind, so muß auf der anderen Seite den Bearbeitern angeraten werden, außer solchen „organisatorischen\" auch noch einige im engeren Sinne ökonomische „Vorfragen\" zu beachten. So scheint es namentlich wichtig, daß der Bearbeiter sich für die von ihm behandelten Industrien ein möglichst deutliches Bild von dem Maß des Kapitalerfordernisses (für „technische\" Betriebseinheiten bestimmter Größen) und von der „organischen\" Zusammensetzung des erforderlichen Kapitals,[^12] dem Verhältnis also von Gebäude- und Maschinenkapital einerseits, von Rohstoffkosten und Lohnkosten andererseits, zu beschaffen sucht. So zweifelhaft es ist, wie weit im Einzelfall ein Unternehmer geneigt sein wird, eingehende Angaben über seine individuellen Verhältnisse in dieser Hinsicht zu machen, so wahrscheinlich ist es nach allen Erfahrungen, daß brauchbare Durchschnittswerte relativ leicht festzustellen sein werden. Nicht minder wichtig würde die Feststellung sein, wie sich die Umschlagszeiten der Kapitalien im Verlauf der technischen und ökonomischen Entwicklung der betreffenden Industrie in der letzten Zeit verschoben haben, und welches der jetzige Zustand in dieser Hinsicht ist. Die Art der Zusammensetzung des Kapitals, und das heißt zugleich: der Produktionskostenelemente einer Industrie, äußert sich vor allem in der Richtung, in welcher sich ihre Tendenz zur Arbeitsersparnis bewegt. Jede Einstellung einer neuen technisch vollkommeneren Maschine bedeutet einerseits Ausschaltung einer Reihe von Arbeitsprozessen, die zur Bedienung der bisher verwendeten Werkzeuge erforderlich waren, und das heißt: Entbehrlichwerden bestimmter, bisher erforderlicher Qualitäten der Arbeiterschaft, andererseits: Verwendung von Arbeitern, welche die neu-eingestellten Maschinen zu bedienen haben und, um dazu geeignet zu sein, ihrerseits gewisse andere Qualitäten entwickeln müssen. Es ist nun für diese Erhebung einer der entscheidenden Punkte, daß festgestellt wird, 1. welche Art von Arbeitern mit welcher Art von Qualitäten durch solche technischen Umwandlungen nach der einen Seite hin ausgeschaltet und auf der anderen gezüchtet werden, 2. inwieweit dies durch die von Maß und Art des Kapitalbedarfs abhängigen allgemeinen ökonomischen Grundlagen der betreffenden Industrie bedingt ist. Technische Umgestaltungen folgen infolge der Knappheit des jeweils verfügbaren „Kapitals\", ziemlich genau dem Wege, der durch das jeweilige Maximum möglicher Kostenersparnis vorgezeichnet ist. Wo aber dies jeweils liegt, bestimmt sich in hohem Maße durch die Zusammensetzung des Kapitals der einzelnen, in einer Hand zusammengefaßten Wirtschaftseinheiten. Je nachdem z.B. die Kosten für unwirtschaftlichen Materialverbrauch oder für Maschinenverschleiß oder für Fehler und Ungleichmäßigkeit des Produkts oder die nackten Lohnkosten als solche innerhalb einer solchen Einheit relativ besonders stark ins Gewicht fallen, variieren deren jeweilige technische Entwicklungstendenzen. Die Industrie trachtet, dementsprechend, bekanntlich nicht einfach danach, absolut hochbezahlte Arbeiter als solche durch technische Neuerungen auszuschalten, sondern sie sucht sie, beispielsweise, dann auszuschalten, wenn die Lohnkosten in dem betreffenden Teil des Produktionsprozesses einen relativ besonders hohen Bruchteil des Gesamtkapitals in Anspruch nehmen, weil die betreffende Arbeiterschaft zugleich hoch qualifiziert, also teuer, und relativ besonders zahlreich ist. Und die für diese Erhebung interessierende Frage ist alsdann: inwieweit sie, im Einzelfall, zugunsten einer dünneren Schicht von Arbeitern mit eventuell noch höherer Qualifikation ausgeschaltet oder durch geringer qualifizierte und jederzeit leicht ersetzbare Arbeiter verdrängt wird. Keineswegs immer aber handelt es sich bei solchen Verschiebungen um einfache Lohnkostenrechnungen; vielmehr wäre die Aufgabe gerade: zu untersuchen, inwieweit und in welcher Richtung durch diese, und inwieweit durch andere Erfordernisse, z.B. Gleichmäßigkeit des Produkts, Materialersparnis usw., Verschiebungen in der Technik und damit in der Zusammensetzung der Arbeiterschaft bedingt wurden. Solche Änderungen können insbesondere auch Funktion des Interesses der Industrie an der Beschleunigung des Umschlags ihres Kapitals sein. Nicht nur trotz, sondern vermittels stetiger Steigerung des stehenden, insbesondere des Maschinenkapitals zugleich die Umschlagsgeschwindigkeit des Gesamtkapitals steigern zu können, ist eine typische Bedingung weitgreifender technischer Neuerungen. Diejenigen Teile des Arbeitsprozesses - und damit auch die an sie geketteten Arbeiter - sind daher diesen Umschaltungsvorgängen am meisten ausgesetzt, an welchen durch maschinelle Mechanisierung am meisten Zeit gespart wird. - Ferner unterstehen große Teile der Fertig- und Halbfabrikatindustrie dem Gesetz der zunehmenden „Standardisierung\" ihrer Produkte. Sie suchen zur Ausschaltung der kostspieligen Vielseitigkeit ihrer Produktionswerkzeuge und ihres Absatzapparates ihre Produkte auf eine Minimalzahl möglichst gleichmäßiger Typen zu reduzieren und die Produktion unter diesem Gesichtspunkt zu „mechanisieren\". Technische Neuerungen, Ausschaltungs- und Neueinschaltungsprozesse, welche unter dem Druck dieses Interesses erfolgen, finden demgemäß an derjenigen Stelle des Produktionsprozesses am intensivsten statt, wo an Typik der Produkte am meisten zu gewinnen ist."
+    }
+  ],
+  "a": [],
+  "e": [
+    {
+      "pending": false,
+      "lb": "1",
+      "pos": 78.2,
+      "content": "Weber meint den Unterausschuß, der die Enquete, in dieser Phase noch unter dem Titel „Auslese und Anpassung der Arbeiterschaft der geschlossenen Großindustrie\", vorbereitete und das Projekt dem Ausschuß des Vereins für Sozialpolitik auf seiner Sitzung am 12. Oktober 1908 in Berlin zur Beschlußfassung vorlegte. Karl Bücher war der Vorsitzende des Unterausschusses. Am 12. Oktober 1908 wurde Heinrich Herkner als Leiter der Untersuchungen eingesetzt."
+    },
+    {
+      "pending": false,
+      "lb": "2",
+      "pos": 78.2,
+      "content": "Das Anschreiben und der Entwurf der Fragebögen ließen sich nicht nachweisen. Diese Unterlagen hatte Alfred Weber dem Unterausschuß zu seiner Sitzung am 13. Juni 1908 vorgelegt."
+    },
+    {
+      "pending": false,
+      "lb": "3",
+      "pos": 78.2,
+      "content": "Weber verweist vermutlich auf die Sitzungen des Unterausschusses am 11. und des Ausschusses am 12. Oktober 1908. Vgl. Editorischer Bericht, oben, S. 68ff."
+    },
+    {
+      "pending": false,
+      "lb": "4",
+      "pos": 78.2,
+      "content": "Max Webers zunächst auf zwei Folgen geplanter Literaturbericht erschien schließlich in vier Folgen unter dem Titel „Zur Psychophysik der industriellen Arbelt\" 1908/09 im AfSS, unten, S. 162-380 (hinfort: Weber, Psychophysik). Bei der Überarbeitung der hier edierten Denkschrift war er Ober Umfang und Abfolge dieser Veröffentlichung nicht sicher. Vgl. unten, S. 104 und 132."
+    },
+    {
+      "pending": false,
+      "lb": "5",
+      "pos": 80.1,
+      "content": "Vgl. Anm.9, unten, S. 135."
+    },
+    {
+      "pending": false,
+      "lb": "6",
+      "pos": 80.3,
+      "content": "Gemeint ist die Enquete des Vereins für Sozialpolitik „Auslese und Anpassung (Berufswahl und Berufsschicksal) der Arbeiter in den verschiedenen Zweigen der Großindustrie\"."
+    },
+    {
+      "pending": false,
+      "lb": "7",
+      "pos": 81.2,
+      "content": "So beispielsweise bei der Enquete des Vereins für Sozialpolitik „Die Verhältnisse der Landarbeiter in Deutschland\", an der Max Weber in den neunziger Jahren des 19. Jahrhunderts mitgearbeitet hatte; vgl. bes. den Editorischen Bericht von Martin Riesebrodtzu Weber, Max, Die Lage der Landarbeiter im ostelbischen Deutschland. 1892, hg. von Martin Riesebrodt. - Tübingen: J. C. B. Mohr (Paul Siebeck) 1984 (MWG I/3), S. 18-33."
+    },
+    {
+      "pending": false,
+      "lb": "8",
+      "pos": 82.2,
+      "content": "Der Unterausschuß hatte einen Fragebogen mit Zusatzbogen und einen „Arbeitsplan\" ausgearbeitet, der in Fragestellung und Methodik der Enquete einführte. Diese Unterlagen wurden nach der Beschlußfassung im Ausschuß gedruckt und an Mitarbeiter und interessierte Vereinsmitglieder verschickt, vgl. auch den Editorischen Bericht."
+    },
+    {
+      "pending": false,
+      "lb": "9",
+      "pos": 83.1,
+      "content": "Im „Arbeitsplan\" heißt es:\n„Es soll den Mitarbeitern überlassen bleiben, ob sie einen einzelnen Betrieb, eine Reihe gleichartiger Betriebe oder eine örtlich abgegrenzte Gruppe von Betrieben der Untersuchung zugrunde legen oder eine vergleichende Darstellung von untereinander verschiedenen Industrien geben wollen.\nAuf alle Fälle ist festzustellen, wie in jedem Fabrikationszweig der Produktionsprozeß geteilt ist, und welche Arten von Arbeitskräften infolgedessen der Betrieb in sich vereinigt.\nDie Gliederung des oder der Einzelbetriebe ist nach ihrer technischen und wirtschaftlichen Bedingtheit zu untersuchen, und es sind die verschiedenen Betriebsabteilungen mit Rücksicht auf ihre Produktionsaufgaben und die in ihnen vorkommenden Arbeitsprozesse und Arbeiterkategorien kurz zu beschreiben. Dabei ist anzugeben, welche Arten von Maschinen verwendet werden, und wie sie auf die Gliederung des Betriebes im ganzen und des Arbeitspersonals im einzelnen einwirken, welche Änderungen und Verschiebungen sich in dieser Hinsicht vollziehen oder in absehbarer Vergangenheit vollzogen haben, aus welchen Gründen und mit welchen Folgen. Endlich sind zu beachten: die Art, wie sich jede Abteilung in das Ganze einfügt, ihre größere oder geringere Selbständigkeit und die Mittel der Kontrolle (Aufsichtspersonen, Revisionsorgane, Fabrikbuchführung).\""
+    },
+    {
+      "pending": false,
+      "lb": "10",
+      "pos": 83.1,
+      "content": "Gemeint ist der Aufsatz von Hugo Ephraim, Organisation, 1905."
+    },
+    {
+      "pending": false,
+      "lb": "11",
+      "pos": 84.1,
+      "content": "Unten, S.128ff."
+    },
+    {
+      "pending": false,
+      "lb": "12",
+      "pos": 84.1,
+      "content": "Damit greift Weber auf einen Begriff aus Karl Marx' „Kapital\". Dort wird der Begriff u.a. am Beginn des 23. Kapitels („Das allgemeine Gesetz der kapitalistischen Akkumulation\") von Band 1 verwendet. Karl Marx versteht unter der „organischen Zusammensetzung\" des Kapitals seine wertmäßige Zusammensetzung aus Produktionsmitteln (konstantes Kapital) und Arbeitskraft (variables Kapital), insofern das Verhältnis dieser Bestandteile technisch bedingt ist. Marx, Karl, Das Kapital. Kritik der politischen Ökonomie, hg. von Friedrich Engels, 1. Band, 4. Aufl. - Hamburg: Otto Meissner 1890, S. 576."
+    }
+  ]
+}

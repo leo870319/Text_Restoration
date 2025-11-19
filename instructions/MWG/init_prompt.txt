@@ -1,0 +1,6 @@
+Action required:
+1. You must internalise the protocol.
+2. Your response must **strictly adheres to** specifications in `schema.json`.
+3. By investigating correspondence between restored vs raw text in `Case_Study_result.json` and `Case_Study_raw.txt`, you must critically examine and refine your understanding of the task.
+4. You must distil the (bitter) lessons learned from your case studies into key takeaways.
+5. You must rephrase each rule in the protocol in your own words, ensuring they clarify ambiguities and impose strict constraints on subsequent tasks.

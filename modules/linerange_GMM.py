@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 from sklearn.mixture import GaussianMixture
 
 def findPhyLRange(txt: str, random_seed: int = 42) -> tuple:

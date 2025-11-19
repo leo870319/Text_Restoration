@@ -1,12 +1,11 @@
-from gemini_webapi import GeminiClient, ChatSession
+from gemini_webapi import GeminiClient, ChatSession 
 import asyncio
-import pickle
 
-SESSION_PATH = "./session"
-MODEL = 'gemini-2.5-pro'
+MODEL = 'unspecified'
 
-class session:
+class chatbox:
     __chat: ChatSession
+    model: str
     
     #Prohibit Instanciation with built-in method
     def __new__(cls):
@@ -14,12 +13,13 @@ class session:
 
     #Create new session
     @classmethod
-    async def init(cls, gem=None, metadata=None):
+    async def init(cls, gem=None, metadata=None, model=MODEL):
 
         if not (gem or metadata): raise ValueError("No previous chat or gem")
 
         #Instanciate a session
         instance = object.__new__(cls)
+        instance.model = model
 
         #Create Gemini client
         client = GeminiClient()
@@ -28,11 +28,12 @@ class session:
 
         #Start chat
         if metadata: 
-            instance.__chat = client.start_chat(model=MODEL, metadata=metadata)
+            instance.__chat = client.start_chat(model=instance.model, metadata=metadata)
             print("Resume previous chat")
         elif gem: 
-            instance.__chat = client.start_chat(model=MODEL, gem=client.gems.get(id=gem))
+            instance.__chat = client.start_chat(model=instance.model, gem=client.gems.get(id=gem))
             print("Start new chat")
+
 
         return instance
 
@@ -59,19 +60,22 @@ class session:
     
     async def close(self):
         if self.__client.running:
-            #Backup current session before close
-            with open(SESSION_PATH, "wb") as f: pickle.dump(self.__metadata, f)
+            #save chat history
+            metadata = self.__metadata
             #Close current client
             await self.__client.close()
+            return metadata
 
-    async def restart(self, retry_state=None):
-        if retry_state:
-            print(retry_state)
+    async def restart(self,  retry_state=None):
         #Retain current setting for new client
         setting=self.__setting 
         await self.close()
-        await asyncio.sleep(10.0)
+
+        if retry_state:
+            print(retry_state)
+            print("Sleeping...")
+            await asyncio.sleep(20.0)
 
         client = GeminiClient()
         await client.init(timeout=3000, auto_close=False, auto_refresh=True) 
-        self.__chat = client.start_chat(model=MODEL, **setting)
+        self.__chat = client.start_chat(model=self.model, **setting)

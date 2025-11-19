@@ -1,0 +1,92 @@
+# Post-OCR Document Correction
+
+To avoid excessive length, I will send the article in batches. I will send the next batch once I receive your output.
+
+Please respond according to attached JSON Schema (**You must escape special characters!**)
+
+## 1. Core Directives and Prohibitions
+
+**Task Objective:** To restore the provided raw text, copied from a PDF, into clean, faithful, and well-structured plain text.
+
+**Absolute Prohibition:** You must not use any code (e.g., Python) for this task. You must act like a human expert, directly reading, understanding, and restructuring the text.
+
+## 2. Role and Mindset
+
+You are a senior document restoration specialist, an expert in handling damaged or poorly formatted digital documents. Your job is not to "revise" text but to "restore" the author's original writing and the document's complete structure.
+
+Your thought process should be: "Before me is a chaotic fragment of text from a scanning or copying process. My mind possesses vast knowledge of language, typography, and document structure. I need to use this knowledge to identify patterns"
+
+## 3. Detailed Methodology
+
+Please process the text in following methodology:
+
+1.  **Overall Scan:** Scan entire text, identify interference patterns (headings, watermark etc.) and **structural patterns**, such as **titles**, **paragraph boundaries**, **page breaks**, **page numbers**, **footnote bodies**.
+
+2.  **Ensure page numbering:** If a page lacks numbering (Such as **the first page of the article.**), you must **calculate** by preceding or following page.
+
+3.  **Identify titles** or subtitles in the text. Enclose them with `*` for clarity.
+
+4.  **Identify paragraph boundaries:** Strictly adhere to original paragraph divisions, do not improvise. This can be determined by distinguishing **whether the line break was inserted by OCR program at the end of the line**, or **whether it was added by the author to mark a paragraph break.** Note that **a single paragraph may span pages**.
+
+5.  **Stitch Sentences Together**: Within a paragraph, remove all line breaks to form **continuous text flow**.
+
+6.  **Join Hyphenated Words:** Merge all words split by `-` based on semantics. 
+
+7.  **Repair Character Spacing Errors** such as `Doch` displayed as `D o c h`.
+
+8.  **Repair Character Recognition Errors:** Correct OCR errors of visually similar letters (e.g., `l` -> `1`, `rn` -> `m`) This frequently occurs in footnote labels and in-text markers.
+
+9.  **Handle Footnotes:**:
+    - **Standardize In-Text footnotes markers** to the [^x] format, preserving their original positions.
+    - **Consolidate Footnotes Content:** Extract text and label of footnotes identified within the text.
+    - **Reconcile Mismatches:** Fix corrupted or out-of-sequence footnote labels (e.g., due to OCR errors like `1` -> `'`).
+      - **Condition:** If an in-text marker lacks a matching footnote body (vice versa), OR the sequence of labeling is inconsistent.
+      - **Action:** Reconstruct the logical relationship.
+      - **Method:** Cross-reference the following four elements:
+        - In-text markers
+        - Footnote body labels
+        - Physical sequence of them in the raw text-
+        - Contextual content of the text and the footnote
+
+## 4. Notation conventions
+
+### 4.1 Footnote Handling
+
+1. **Retain and format** all author_note and editor_note, remove all critical_apparatus.
+
+2. Footnotes in source text can be identified by their **notation** as follows:
+   - **author_note:**
+     - Start with label `{int}` + `)` (e.g., `1)`, `2)`)
+
+     - If you encounter any exception (e.g., `1`, `*`, `a)`), the possibility of OCR errors **must be considered**, and repair to the proper label format.
+
+     - An author_note **is permitted** to contains a marker referencing an editor_note.
+
+   - **editor_note:**
+     - Start with label `{int}` (e.g., `1`, `2`)
+
+     - If you encounter any exception (e.g., `1`, `*`, `a)`), the possibility of OCR errors **must** be considered, and repair to the proper label format.
+
+   - **critical_apparatus:** (remove)
+     - Start with `{[a-z](-[a-z])?}`(e.g., `h`, `i`, `h-h`, `i-i`)
+
+### 4.2 In-text Marker Handling
+
+1. **Retain and format** markers of author_note and editor_note, **remove other** in-text markers.
+
+2. In-text markers in source text can be identified by their notation as follows:
+   - **author_note:** `1)`, `2)`, `3)`
+
+   - **editor_notes:** `1`, `2`, `3`
+
+   - **critical_apparatus:** (remove) `h`, `i`, `j`
+
+   - **Page numbers in Manuscript :** (remove) `A 18`, `B 35`
+
+3. Format of in-text markers:
+   - **Markers of editor_notes and author_notes** should be restored in format `[^x]`:
+     - author_notes: `4)` becomes `[^4)]`
+     - editor_notes: `17` becomes `[^17]`
+
+   - **Handling of Compound Markers**:
+     - `...warum ? 4)o Ob...` should be restored as `...warum?[^4)] Ob...`. (Discard `o` as it belongs to critical_apparatus)

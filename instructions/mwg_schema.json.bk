@@ -1,0 +1,89 @@
+
+{
+  "title": "Document Chunk Schema",
+
+  "description": "Defines the structure for a single batch of a restored document.",
+
+  "type": "object",
+
+  "properties": {
+    "b": {
+      "description": "An array of restored text blocks in the main text such as titles, paragraphs",
+
+      "type": "array",
+
+      "items": { "$ref": "#/definitions/Block" }
+    },
+
+    "a": {
+      "description": "An array of restored author_notes",
+
+      "type": "array",
+
+      "items": { "$ref": "#/definitions/Footnote" }
+    },
+    "e": {
+      "description": "An array of restored editor_notes",
+
+      "type": "array",
+
+      "items": { "$ref": "#/definitions/Footnote" }
+    }
+  },
+
+  "required": ["b", "a", "e"],
+
+  "definitions": {
+    "Block": {
+      "type": "object",
+
+      "properties": {
+        "pos": {
+          "description": "Format: [Page].[Index]. Determined by the order of a text block on a given page. For example, `125.3` means this block is the third of every block whose \"starting point\" is on page 125. Trailing content occupies the top of a page due to page break should not be counted.",
+
+          "type": "number"
+        },
+
+        "content": {
+          "description": "The restored content of a text block",
+
+          "type": "string"
+        }
+      },
+
+      "required": ["pos", "content"]
+    },
+
+    "Footnote": {
+      "type": "object",
+
+      "properties": {
+        "pending": {
+          "description": "Status: False = Content found (Complete), True = Marker found, content missing (Pending).",
+
+          "type": "boolean"
+        },
+
+        "lb": {
+          "description": "The label of this footnote (e.g., `1`, `a`).",
+
+          "type": "string"
+        },
+
+        "pos": {
+          "description": "The 'pos' of the text block where this footnote's marker was found. If the content of a particular footnote contains a marker pointing to another footnote, both should possess identical position values.",
+
+          "type": "number"
+        },
+
+        "content": {
+          "description": "The restored footnote content, or null if pending.",
+
+          "type": ["string", "null"]
+        }
+      },
+
+      "required": ["pending", "lb", "pos", "content"]
+    }
+  }
+}

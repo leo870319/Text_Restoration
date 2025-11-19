@@ -1,129 +1,82 @@
 import asyncio
 import pickle
-import sys
 import regex as re
-from gemini_webapi import GeminiClient
-from typing import Dict, Any
+import json_repair
+import json
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt
+from modules.chatbox import chatbox
+from modules.helper import Doc
 
 INDEX = 0
-FILEPATH = "text.txt"
-AGENTID = 'df8f12a87dcc'
-
-def generateQueries(paragraphs: list, num: int):
-    queries = []
-    t = ''
-    char_limit = num  # Define limit clearly
-    for x in paragraphs:
-        if len(t) + len(x) > char_limit and t:
-            queries.append(t + "\n")
-            t = x
-        else:
-            t += x
-    
-    # Add the last remaining chunk
-    if t:
-        queries.append(t+"\n")
-
-    print(f"Split text into {len(queries)} chunks.")
-    return queries
-
+GEM_ID = 'df8f12a87dcc'
+FILE_PATH = "./restored/restored.json"
+PROMPT_PATH = './instructions/Trans/init_prompt.txt'
+SESSION_PATH = './previous_chat/session'
+OUT_PATH = "./out/"
+QUERY_SIZE = 20000
 
 async def main():
-
     # --- 1. Read files ---
-    try:
-        # Use 'utf-8' encoding for broad compatibility
-        with open(FILEPATH, 'r', encoding='utf-8') as f:
-            body = f.read()
-        # with open("footnotes.txt", 'r', encoding='utf-8') as f:
-        #     foot = f.read()
-    except FileNotFoundError:
-        print("Error: text.txt not found. Please create the file.", file=sys.stderr)
-        return
-    except Exception as e:
-        print(f"Error reading text.txt: {e}", file=sys.stderr)
-        return
-    if not (body):
-        print("text.txt is empty. Exiting.", file=sys.stderr)
-        return
-
-
-    # 2. Group chunks into queries up to a character limit
-    text = body
-    bodies = body.splitlines()
-    # foots = foot.splitlines()
-    b = generateQueries(bodies, 5000)
-    # f = generateQueries(foots, 5000)
-    queries = b
-
-    # --- 3. Initialize Client ---
-    state: Dict[str, Any] = {
-        "client": None,
-        "chat": None,
-        "metadata": None
-    }
-
     try: 
-        with open('session', 'rb') as f:
-            state["metadata"] = pickle.load(f)
+        with open(SESSION_PATH, 'rb') as f:
+            metadata = pickle.load(f)
     except FileNotFoundError:
+        metadata = None
         print("No existed session found")
-        pass
 
-    async def init_gemini(retry_state=None):
-        if state["client"]:
-            await state["client"].close()
-            print(retry_state)
-            await asyncio.sleep(10.0)
-        # Set a reasonable timeout for initialization
-        state["client"] = GeminiClient()
-        await state["client"].init(timeout=3000, auto_close=False, close_delay=300, auto_refresh=True)
+    with open(PROMPT_PATH ,"r") as f:
+        prompt = f.read()
 
-        # --- 4. Select Gem/Agent ---
-        if state.get('metadata'):
-            state["chat"] = state["client"].start_chat(model='gemini-2.5-pro', metadata=state.get('metadata'))
-        else:
-            await state["client"].fetch_gems(include_hidden=False)
-            # This ID is specific to your setup.
-            agent = state["client"].gems.get(id=AGENTID)
-            # Initialize translation task with entire article
-            state["chat"] = state["client"].start_chat(model='gemini-2.5-pro', gem=agent)
-            state["metadata"] = state["chat"].metadata
-            with open("session", "wb") as f:
-                pickle.dump(state["metadata"], f)
-            print("New chat initiated, waiting for first response")
-            r = await state["chat"].send_message(text)
-            p = re.compile(r'(?<=```markdown\n)[\s\S]*?(?=\n```)')
-            block = p.findall(r.text) 
-            if len(block) == 2:
-                with open("ToC.md", "w") as f:
-                    f.write(block[0]+ "---\n\n")
-                with open("Glossary.md", "w") as f:
-                    f.write(block[1]+ "---\n\n")
+    # Use 'utf-8' encoding for broad compatibility
+    with open(f"{FILE_PATH}", 'r', encoding='utf-8') as f:
+        doc = Doc(json.load(f))
+    
+    text = json.dumps(doc.document, indent=2, ensure_ascii=False)
 
-    await init_gemini()
-    # 5. Process all queries
-    p = re.compile(r'(?<=```markdown\n)[\s\S]*?(?=\n```)')
+    # --- 3. Initialize Client with init_prompt ---
+    s = await chatbox.init(gem=GEM_ID, metadata=metadata)
+    r = await s.send_message(prompt)
+    r = await s.send_message(text)
+    blocks = re.findall(r'(?<=```markdown\n)[\s\S]*?(?=\n```)', r.text) 
+    if len(blocks) == 2:
+        with open(f"{OUT_PATH}Glossary.md", "w") as f: f.write(blocks[0])
+        with open(f"{OUT_PATH}ToC.md", "w") as f: f.write(blocks[1])
+    else:
+        raise ValueError("Server initial response is in wrong format")
+
+    # Switch model to save cost
+
+    # Translating
+    queries = doc.generate_queries(QUERY_SIZE)
     for i, query_text in enumerate(queries, start=INDEX):
-        print(f"Processing chunk {i}/{len(queries)-1}")
         try:
-            async for attempt in AsyncRetrying(stop=stop_after_attempt(10), after=init_gemini):
-                with attempt:
-                    r = await state["chat"].send_message(query_text)
-                    block = p.findall(r.text) 
-                    with open("body_translate.md", "a") as f:
-                        f.write(block[0]+ "\n\n---\n\n")
-                    # with open("glossary.txt", "a") as f:
-                    #     f.write(block[1]+ "---\n\n")
+            async for attempt in AsyncRetrying(stop=stop_after_attempt(3), after=s.restart):
+                with attempt: 
+                    print(f"Processing chunk {i}")
+                    r = await s.send_message(query_text)
+                    if not isinstance( patches := json_repair.loads(r.text), dict):
+                        with open(f"{OUT_PATH}error_response.txt", 'w', encoding='utf-8') as f: f.write(r.text)
+                        raise TypeError("Server Response is not dict")
+                    doc.patch_trans(patches)
         except RetryError as e:
-            print(f"All retries failed: {e}")
+            print(e)
+            break
+
+        with open(f"{OUT_PATH}translated.json", "w", encoding='utf-8') as f:
+            json.dump(doc.document, f, indent=2, ensure_ascii=False)
+        md = doc.to_markdown()
+        with open('./out/translated.md', 'w', encoding='utf-8') as f:
+            f.write(md)
+        # if i == 0:
+        #     s.model = 'gemini-2.5-flash'
+        #     await s.restart()
         
-    # --- 6. Close Client ---
-    if state["client"].running:
-        print("Closing client connection...")
-        await state["client"].close()
-        print("Client closed.")
+    if ep := doc.err_patchs:
+        with open(f"{OUT_PATH}error_patch.json", 'w', encoding='utf-8') as f: json.dump(ep, f, indent=2, ensure_ascii=False)
+    if session:= await s.close():
+        with open(SESSION_PATH, 'wb') as s: pickle.dump(session, s)
+    print("Client closed")
+
 
 if __name__ == "__main__":
     try:
