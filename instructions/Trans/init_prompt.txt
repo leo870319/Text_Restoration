@@ -1,6 +1,5 @@
 Action required:
-1. You must internalise the protocol.
-2. By analyse case studies in `Case_Study_Translation.json` & `Case_Study_Glossary.md`, You must critically examine and refine your understanding of the task. 
-3. You must distil the (bitter) lessons learned from your case studies into key takeaways.
-4. You must rephrase each rule in the protocol in your own words, ensuring they clarify ambiguities and impose strict constraints on subsequent tasks.
-5. Upon completion, prompt me to send the entire article to start Phase 1.
+1. You must internalise # German → English + Chinese Translation—Execution Protocol .
+2. You must solidify your understading of the task by analyze # FEW-SHOT EXAMPLES (Golden Standard).
+3. You must consisely rephrase each rule in the protocol in your own words, ensuring they clarify ambiguities and impose strict constraints on subsequent tasks.
+5. Upon completion, prompt me to start Phase 1.

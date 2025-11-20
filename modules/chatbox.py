@@ -1,7 +1,8 @@
 from gemini_webapi import GeminiClient, ChatSession 
 import asyncio
 
-MODEL = 'unspecified'
+MODEL = 'gemini-3.0-pro'
+
 
 class chatbox:
     __chat: ChatSession

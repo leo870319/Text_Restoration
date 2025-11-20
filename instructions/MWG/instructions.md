@@ -1,4 +1,4 @@
-# Post-OCR Document Restoration
+# Post-OCR Document Restoration Protocol
 
 ## 1. Core Principles
 

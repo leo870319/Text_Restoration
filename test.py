@@ -5,11 +5,11 @@ import json_repair
 import json
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt
 from modules.chatbox import chatbox
-from modules.helper import Doc
+from modules.doc import Doc
 
 INDEX = 0
 GEM_ID = 'df8f12a87dcc'
-FILE_PATH = "./restored/restored.json"
+FILE_PATH = "./result/Weber/restored.json"
 SESSION_PATH = './previous_chat/session'
 OUT_PATH = "./out/"
 QUERY_SIZE = 5000
@@ -28,15 +28,14 @@ async def main():
     #     prompt = f.read()
 
     # Use 'utf-8' encoding for broad compatibility
-    # with open(f"{FILE_PATH}", 'r', encoding='utf-8') as f:
-    #     doc = Doc(json.load(f))
+    with open(f"{FILE_PATH}", 'r', encoding='utf-8') as f:
+        doc = Doc(source = json.load(f))
     
-    with open('./out/translated.json', 'r', encoding='utf-8') as f:
-        doucment = json.load(f)
-    d = Doc(doc = doucment)
-    md = d.to_markdown()
-    with open('./out/translated.md', 'w', encoding='utf-8') as f:
-        f.write(md)
+    # with open('./out/translated.json', 'r', encoding='utf-8') as f:
+    #     doucment = json.load(f)
+    document = doc.document
+    with open('./out/translated.json', 'w', encoding='utf-8') as f:
+        json.dump(document, f,indent=4,  ensure_ascii=False)
 
     # queries = doc.generate_queries(QUERY_SIZE)
 

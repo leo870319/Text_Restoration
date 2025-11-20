@@ -33,13 +33,15 @@ class Doc():
             raise ValueError("no source or doc")
 
         self.err_notes: list[Footnote] = []
+        self.err_patchs = []
 
     def _attach_notes_to_body(self):
+        t = {"t1": "<Insert T1 English>", "t2": "<Insert T2 Chinese>", "t3": "<Insert T3 Plain>"}
         for b in self._source["bodies"]:
             if notes := self._nmap.get(b["pos"]):
-                notes = {n["lb"]: {"content": n["content"]} for n in notes}
-                d = {str(b["pos"]): { "content": b["content"], "notes": notes}}
-            else: d = {str(b["pos"]): { "content": b["content"]}}
+                notes = {n["lb"]: {"content": n["content"], **t} for n in notes}
+                d = {str(b["pos"]): { "content": b["content"], **t, "notes": notes}}
+            else: d = {str(b["pos"]): { "content": b["content"], **t}}
             self.document.update(d)
 
     def generate_queries(self, query_size: int = 10000) -> Iterator[str]:
@@ -66,8 +68,8 @@ class Doc():
             yield json.dumps(current_query, indent=2, ensure_ascii=False)
 
 
+
     def patch_trans(self, patches: dict[str, dict]):
-        self.err_patchs = {}
         for pos_str, patch in patches.items():
             try:
                 target = self.document.get(pos_str)
@@ -75,22 +77,23 @@ class Doc():
                 target = None
 
             if not target:
-                self.err_patchs[pos_str] = patch
-                print(f"Warning: Patch received for unknown pos {pos_str}")
+                self.err_patchs.append({pos_str: patch})
+                print(f"Warning: Patch received have unknown pos: {pos_str}")
                 continue
 
             target.update({k: v for k, v in patch.items() if k != "notes"})
-
-            if (p_notes := patch.get("notes")) and (t_notes := target.get("notes")):
+            t_notes = target.get("notes")
+            p_notes = patch.get("notes")
+            if p_notes and t_notes:
                 for nid, _ in t_notes.items():
                     if nid in p_notes:
                         t_notes[nid].update(p_notes[nid])
                     else:
-                        self.err_patchs[pos_str] = patch
-                        print(f"Warning: Patch received missing lb {pos_str}: {nid}")
-            elif p_notes or (t_notes := target.get("notes")):
-                self.err_patchs[pos_str] = patch
-                print(f"Warning: Patch received notes error {pos_str}")
+                        self.err_patchs.append({pos_str: patch})
+                        print(f"Warning: Patch received {pos_str} missing  note: {nid}")
+            elif p_notes or t_notes:
+                self.err_patchs.append({pos_str: patch})
+                print(f"Warning: Patch received {pos_str} missing all notes")
 
     def to_markdown(self):
         pb = '\n\n'
