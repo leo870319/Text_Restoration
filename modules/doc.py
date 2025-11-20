@@ -109,7 +109,7 @@ class Doc():
                 t1 = re.sub(r'\n', r'<br>', t1)
                 t2 = re.sub(r'\n', r'<br>', t2)
                 t3 = re.sub(r'\n', r'<br>', t3)
-                body_str ='#' + pos + pb + '>' + sc + pb + 'T1: ' + pb + '>' + t1 + pb + 'T2: ' + pb + '>' + t2 + pb + 'T3: ' + pb + '>' + t3
+                body_str ='#### ' + pos + pb + '>' + sc + pb + 'T1: ' + pb + '>' + t1 + pb + 'T2: ' + pb + '>' + t2 + pb + 'T3: ' + pb + '>' + t3
             else:
                 body_str = pos + pb + sc
             if notes := body.get("notes"):
